@@ -185,6 +185,7 @@ def astronaut_selection():
         print(request.form['stay_on_mars'])
         return "Форма отправлена"
 
+
 @app.route('/choice/<planet_name>')
 def choice(planet_name):
     return f"""<!doctype html>
@@ -205,6 +206,29 @@ def choice(planet_name):
                     <div class="alert alert-success">На ней есть вода и атмосфера;</div>
                     <div class="alert alert-secondary">На ней есть небольшое магнитное поле;</div>
                     <div class="alert alert-warning">Наконец, она просто красива!</div>
+                  </body>
+                </html>"""
+
+
+@app.route('/results/<nickname>/<int:level>/<float:rating>')
+def results(nickname, level, rating):
+    return f"""<!doctype html>
+                <html lang="en">
+                  <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                    <link rel="stylesheet" 
+                    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+                    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+                    crossorigin="anonymous">
+                    <title>Результаты</title>
+                  </head>
+                  <body>
+                    <h1>Результаты отбора</h1>
+                    <h3>Претендента на участие в миссии {nickname}:</h3>
+                    <div class="alert alert-success">Поздравляем! Ваш рейтинг после {level} этапа отбора</div>
+                    <div class="alert alert-secondary">составляет {rating}!</div>
+                    <div class="alert alert-warning">Желаем удачи!</div>
                   </body>
                 </html>"""
 
