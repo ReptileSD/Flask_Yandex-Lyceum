@@ -185,6 +185,29 @@ def astronaut_selection():
         print(request.form['stay_on_mars'])
         return "Форма отправлена"
 
+@app.route('/choice/<planet_name>')
+def choice(planet_name):
+    return f"""<!doctype html>
+                <html lang="en">
+                  <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                    <link rel="stylesheet" 
+                    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+                    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+                    crossorigin="anonymous">
+                    <title>Варианты выбора</title>
+                  </head>
+                  <body>
+                    <h1>Мое предложение: {planet_name}</h1>
+                    <div class="alert alert-danger">Эта планета близка к Земле;</div>
+                    <div class="alert alert-dark">На ней много необходимых ресурсов;</div>
+                    <div class="alert alert-success">На ней есть вода и атмосфера;</div>
+                    <div class="alert alert-secondary">На ней есть небольшое магнитное поле;</div>
+                    <div class="alert alert-warning">Наконец, она просто красива!</div>
+                  </body>
+                </html>"""
+
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
