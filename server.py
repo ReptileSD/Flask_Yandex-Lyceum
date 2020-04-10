@@ -269,5 +269,77 @@ def load_photo():
                 </html>"""
 
 
+@app.route('/carousel')
+def carousel():
+    return f'''<!doctype html>
+                <html lang="en">
+                  <head>
+                    <meta charset="utf-8">
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                    <link rel="stylesheet" type="text/css" href="{url_for('static', filename='/css/style.css')}" />
+                    <title>Отбор астронавтов</title>
+                </head>
+                <body>
+                <h1>Пейзажи Марса</h1>
+                <div class="container">
+                  <br>
+                  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                      <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                        <img src="{url_for('static', filename='photos/landscape1.jpg')}" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Лавины на откосах на северном полюсе Марса.</h5>
+                                <p>Материал, включающий в себя лед и пыль и, возможно, большие валуны, 
+                                откалывается от нависшего утеса и каскадом сходит с более мягких скатов.
+                                Это отложение составляет примерно 180 метров в диаметре и растягивается
+                                на 190 метров от основания утеса. 
+                                </p>
+                            </div>
+                      </div>
+                      <div class="item">
+                        <img src="{url_for('static', filename='photos/landscape2.jpg')}" alt="Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Кратер Виктория в Meridiani Planum.</h5>
+                                <p>Кратер составляет примерно 800 метров в диаметре. 
+                                Слоистые осадочные породы отложились вдоль внешней стены кратера,
+                                а на дне кратера видны валуны, отколовшиеся от стены кратера. 
+                                В пределах стен этого кратера взорвался марсоход НАСА.
+                                </p>
+                            </div>
+                      </div>
+                      <div class="item">
+                        <img class="d-block w-100" src="{url_for('static', filename='photos/landscape3.jpg')}" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Скалистые плоскогорья региона Nilosyrtis Mensae.</h5>
+                            <p>Филлосиликатные (глиняные) минералы были найдены в регионе 
+                            с помощью спектрометров космических аппаратов «Mars Express» и
+                            «MRO», они представляют огромный интерес для поиска доказательств
+                            жизни на древнем Марсе. 
+                            </p>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+                </body>
+                </html>
+                '''
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
